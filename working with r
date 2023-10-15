@@ -1,0 +1,210 @@
+#Assign value to the variable
+a=7
+#printing the variable
+print(a)
+my_seq=("ATGCATGCATGC")
+print(my_seq)
+
+#function: <name_of_function>(<argument>)
+
+getwd()
+setwd("D:")
+#data container
+#vector
+#script for storing vector -<name_vector>=c (<provide the values separated by commas>)
+my_first_vector=c(9,11,4,7,18)
+#dim(my_first_vector)
+print(my_first_vector)
+
+#for fetchin we use square bracket[]
+print(my_first_vector[3])
+print(my_first_vector[1:4])
+print(my_first_vector[2:4])
+print(my_first_vector[c(2,5,4)])
+print(my_first_vector[-4])
+
+sum(my_first_vector)
+sum(1,3)
+log(10)
+log(my_first_vector)
+mean(c(1,3))
+mean(my_first_vector)
+sd(my_first_vector)
+var(my_first_vector)
+length(my_first_vector)
+
+#data frame -2D(table)
+#assignment- data.frame()
+# each column of a data frame is a vector
+name_student=c("kadam","deepak","suraj","bimal")
+age_student=c(28,23,24,25)
+city_student=c("kotha","rk","ln","pk")
+
+student_dataframe=data.frame(name_student,age_student,city_student)
+View(student_datafrmae)
+#adding new studet to a dataframe
+gender_student=c("F","F","F","F")
+student_dataframe=cbind(student_dataframe,gender_student)
+View(student_dataframe)
+
+new_entry=data.frame(name_student="kadam",age_student=28,city_student="kotha",gender_student="F")
+student_dataframe=rbind(student_dataframe,new_entry)
+View(student_dataframe)
+
+#EXTRACTION OF DATA [row,column]
+student_dataframe[1,]#extracting a row
+student_dataframe[,3]#extracting a column
+
+student_dataframe$city_student
+#for continuous row and column
+student_dataframe[1:3,]
+student_dataframe[,1:3]
+student_dataframe[1:3,1:3]
+student_dataframe[c(1,4),c(1,4)]
+
+mean(student_datafrmae$age_student)
+max(student_datafrmae$age_student)
+
+#delete a row
+
+row_to_delete<-5
+student_dataframe<-student_dataframe[-row_to_delete,]
+View(student_dataframe)
+gender_student=c("F","F","F","F","F")
+student_dataframe=cbind(student_dataframe,gender_student)
+View(student_dataframe)
+
+student_dataframe[1,]
+student_dataframe[,4]
+student_dataframe[1,3]
+
+#continious row and columb
+student_dataframe[,1:4]
+student_dataframe[1:5,1:4]
+
+mean(student_dataframe$age_student)
+mean(student_datafrmae$age_student)
+
+my_file_data=read.csv("cancer.csv")
+View(my_file_data)
+max(my_file_data$EstimatedSalary)
+min(my_file_data$EstimatedSalary)
+
+cor(my_file_data$EstimatedSalary,my_file_data$Age)
+plot(my_file_data$EstimatedSalary,my_file_data$age)
+
+library("readxl")
+my_excel_sheet=read_excel("cont-muscle deg.xlsx")
+View(my_excel_sheet)
+
+1==2
+1==1
+"A"=="a"
+
+#syntax if & else
+
+#if(condition){
+#statement1
+#statement2
+#}
+#else{
+#statement1
+#statement2
+#}
+my_name="Kadam"
+
+if(my_name=="delip"){
+  print("The Name is Delip")
+}else{
+  print("The name is not Delip")
+}
+
+#AND-&
+#OR-|
+#NOT-!
+
+x=5
+y=7
+if(x==5 & y==7){
+print("conditions are true")
+}else{
+    print("conditions are false")
+  }
+if(x==5 | y==7){
+  print("conditions are true")
+}else{
+  print("conditions are false")
+}
+
+if(!(x==5 | y==10)){
+  print("conditions are true")
+}else{
+  print("conditions are false")
+}
+
+#loop
+#iterator
+#list
+#syntax - for loop
+#for(iterator in list){
+#conditions
+#}
+
+1:10
+for(x in 1:10){
+print(x)
+}
+
+name_student=c("kadam","delip","suraj","bimal")
+
+for(x in name_student){
+  print(x)
+}
+
+#flag function to stop over repeating
+flag=1
+for(x in name_student){
+  if(x=="delip"){
+   flag=0
+    break
+  }
+  }
+  if(flag==1){
+    print("deepak is not in class")
+  }else{
+    print("deepak is in class")
+  } 
+
+#function
+#<name of function>= function(){
+#...
+#...
+#}
+
+square_num=function(a){
+  x=a*a
+  return(x)
+}
+
+result=square_num(2)
+print(result)
+
+#finding the person
+find_person=function(namek){
+  flag=1
+  for(x in name_student){
+    if(x==namek){
+      flag=0
+      break
+    }
+  }
+  if(flag==1){
+    print(paste(namek,"is not in class"))
+  }else{
+    print(paste(namek," is in class"))
+  }
+}
+find_person("kadam")
+find_person("deepak")
+
+  
